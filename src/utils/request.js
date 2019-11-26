@@ -9,7 +9,8 @@ const request = (path, method = 'get', body = null) => {
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': token ? `Bearer ${token}` : ''
+      'Authorization': token ? `Bearer ${token}` : '',
+      'Access-Control-Allow-Origin': "*"
     },
     data: body
   })
