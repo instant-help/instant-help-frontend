@@ -1,0 +1,152 @@
+Created react file for front end
+looked through react authorization example
+installed first round of packages. 
+
+color schemes. 
+logo color "#61DAFB"
+  color: #61dafb;
+
+  background-color: #282c34;
+  font
+  color: white;
+
+walked through auth react file with Rodger
+now editing file to create log in and sign in with authorization
+
+new packages installed for app.js file
+npm install --save react-router-dom
+npm install --save react-redux
+npm install --save redux
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+copied and pasted app componet with auth request in app.js file
+
+npm install axios
+creating Utils folder 
+created request.js file
+
+Added folders like reducers, styles, utils, components, actions etc. 
+Also coppied files for the folders. 
+
+Ask Roger about index.js file. 
+
+1. added npm install --save redux-thunk
+wrapped index.js with Provider tag, imported provide, and created store.js file
+
+Now I have to add a .env file to make sure I am connecting properly.
+Failed to load resource: the server responded with a status of 404 (Not Found)
+changed my backend to localhost 5000 
+Access to XMLHttpRequest at 'http://localhost:5000/auth/token' from origin 'http://localhost:3000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+Added corrs to the back end app.js file
+
+new error says i am not seading auth header. 
+{"error":{"status":401,"message":"Unauthorized ctrl-auth 1"},"message":"app.js"}
+If in the request.js file within the headers object if the authorization key is 
+spelt with a lowercae a and not a capital A the get a no headers error. 
+I also got an invalid jwt signature becasue my local storage was using a token that
+was from a different database. I used postman to request a new token as if I was a new
+log in. then coppied that token and placed it into my local storage and the request 
+worked. 
+
+Now time to build a log in and sign in process for Front end. 
+
+I inputed login components then the css files and then imported bootstrap
+into the index.css file. Now it seems my log in works. 
+
+Questions 1
+1. How do I do a conditional that removes the sign up button when logged in and
+bring it back when logged out. 
+
+I got stuck on this. I copied over the login components and named it Singup and edited
+all the log in info to to be sign up. I forgot to change and update the app.js
+routing file. Scott helped me realize I had to update the router paths and import the 
+signup paths on the app.js page.           
+<Route path='/signup' component={Signup} />
+
+
+this turns on and off a div for signup. 
+{this.props.user ? null : 
+          <div >
+            <span className="btn btn-sm btn-outline-secondary" onClick={()=>this.signUpButton()} style={{marginRight: '10px'}} >Sign Up</span>
+          </div>
+          }
+
+
+2. I have to replace the sign up link with a component Sign Up and function handlers?
+DONE 
+
+3. I have to find how I send the log in information to the back end.
+upedated to new path /users/ 
+request('/users','post'
+
+4. I have to have backend paths that allow someone to CRUD a user. 
+
+I have creating users working on the Sign up component but I am trying to find out why 
+i am getting an auth GET http://localhost:5000/auth/token 401 (Unauthorized) error
+which might be natural?
+
+Also on the Sign Up I am trying to find a way to make a welcome user div that shows
+up after you signed up but not before you sign up. 
+
+ROGER helped me. We started looking at state issues and he showed me that I needed some
+redux code to bring in props and I could try and use those props now that I had access to them.
+Also we pivoted and decided to set up a instant log in once a successful sign up occurs. 
+Roger walked me through the new code. 
+
+
+1. my sign in gets a bad request that return my user database - my failed post request
+seems to default as a get all request. 
+2. need to work on how to set up the rest of my database tables
+3. create more detailed user profiles
+4. Create react front end. 
+
+1. Ran into a problem where my file component SessionConnection.js wouldnt load. It seemed to be related to a
+bug regarding the renaming of the file which was first SessionConnection and then renamed it SessionConnection.js
+I had to write my import file location as SessionConnection.js with the .js to make it work.
+Scott mentioned it was probably a webpack problem and by restarting my react server the problem resolved to
+read the file properly without the .js in the file source name.  
+
+worked with scott to install google hangout button. He help me find out how to install it. 
+I have to install some javascript in the public html folder and then render the start hangout
+button on my SessionConnection componet by mountings the button through the global window. 
+
+componentDidMount() {
+    window.gapi.hangout.render('placeholder-div', { 'render': 'createhangout' })
+  }
+  
+  place div in render area. 
+  <div id="placeholder-div"></div>
+
+for rendering page paths like localhost3000/profile I placed my route under the home route
+which is / the root path and that was preventing my profile page from rendoring. Took about 
+20 mins to figure that out. 
+
+
+trick to get around a button that I couldnt use on a required form. the button was to cancle
+an action not to submit but the required field disabled it. So I had to use an 
+a tag to mimic a button with an onclinck property
+
+export const getActiveSessionInfo = function (){
+  return async (dispatch, getStore) => {
+    const { ihelp: { requestInfo } } = getStore()
+    console.log('Request Info',requestInfo)
+    try {
+      const response = await request(`/sessions/active/${requestInfo.id}`)
+      dispatch({type: GET_SESSION, payload: response.data})
+      console.log('Request Info',requestInfo)
+      console.log('getActiveSessionInfo',response.data)
+    }
+    catch(e){
+      console.log(e)
+    }
+    // this is the .then version, the other is the dispath version. 
+    // request(`/sessions/active/${request_id}`)
+    // .then(response => {
+    //   dispatch({type: GET_SESSION, payload: response.data})
+    //   console.log('THE REQUEST INFOMATION',response.data)
+    // })
+    // .catch(e => console.log(e))
+  }
+}
