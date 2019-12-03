@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { refreshUser } from '../../actions/authentication'
 import { bindActionCreators } from 'redux'
+import "../../styles/profile.css"
+import "../../styles/nav.css"
 
 class Profile extends Component {
   
@@ -14,9 +16,9 @@ class Profile extends Component {
     return (
       <div className='container'>
         <p className="card-text "> </p>
-        <div className="card">   
-          <h1 className="card-header"><span style={{marginLeft: '150px'}}>{this.props.user.firstname}</span> {this.props.user.lastname}</h1>
-          <div className="card-body row">
+        <div className="card "        >   
+          <h1 className="card-header text-black bg-warning"><span style={{marginLeft: '150px'}}>{this.props.user.firstname}</span> {this.props.user.lastname}</h1>
+          <div className="card-body row ">
             <div className='col-2 '>
             <img   className="rounded-circle " height="150" width="150" src={this.props.user.image} />
             </div>
@@ -28,7 +30,7 @@ class Profile extends Component {
             <div>
               <h3>{this.props.user.skill}</h3>
             </div>
-            <a href="#" className="btn btn-primary">Update Profile</a>
+            <a href="#" className="btn text-black bg-warning">Update Profile</a>
             </div>
           </div>
         </div>

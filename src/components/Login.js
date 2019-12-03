@@ -34,7 +34,7 @@ class Login extends Component {
           <div className={ !this.state.showErrorMessage ? 'login-auth-error login-hide-auth-error' : 'login-auth-error' }>
             Invalid Username or Password
           </div>
-          <button className="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+          <button className="btn btn-lg btn-warning btn-block" type="submit">Log in</button>
         </form>
       </div>
     )

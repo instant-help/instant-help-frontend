@@ -47,6 +47,7 @@ class Request extends Component {
     })
   }
 
+ 
   
 
   render(){
@@ -55,21 +56,20 @@ class Request extends Component {
       <div>
         <div style={{marginTop: '10px'}}>
           <div className="card">
-            <div className="card-header">
+            <div className="card-header text-black">
               <div>
                 <form onSubmit={this.onSubmitRequest}>
                   <div className="form-group">
-                    <label htmlFor="exampleFormControlTextarea1">Enter your Request Description</label>
+                    <label htmlFor="exampleFormControlTextarea1">Enter Your Request Description</label>
                     <textarea name='request'
                       placeholder={ this.props.requestInfo ? this.props.requestInfo.description : "Write request here"}
                       className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={ this.onChange } required>
                     </textarea>
                   </div>
-                  <button type="submit" className="btn btn-primary">{ this.props.user.queue_status !== 'available' ? this.props.user.queue_status  : 'Submit Request' }</button>
-
+                  <button type="submit" className="btn btn-warning">{ this.props.user.queue_status !== 'available' ? this.props.user.queue_status.toUpperCase()  : 'Submit Request' }</button>
                   {
                     (this.props.user.queue_status === 'request in queue' || this.props.user.queue_status === 'request pending' ) 
-                    ? <a onClick={this.closeRequest}style={{marginLeft: '10px'}} className="btn btn-primary">Close Request </a> 
+                    ? <a onClick={this.closeRequest}style={{marginLeft: '10px'}} className="btn btn-danger">Close Request </a> 
                     : null
                   }
                 </form>

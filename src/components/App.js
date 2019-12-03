@@ -14,6 +14,7 @@ import ProfileSettings from './Profile/ProfileSettings'
 import ProfileNewForm from './Profile/ProfileNewForm'
 import Profile from './Profile/Profile'
 import AuthenticatedRoute from '../higherOrderComponents/AuthenticatedRoute'
+import '../styles/nav.css'
 
 class App extends Component {
   componentDidMount(){
@@ -24,9 +25,11 @@ class App extends Component {
     return (
     <div>
       <BrowserRouter>
-        <div>
+        <div                 
+        className={"navColor"}
+>
           <div className="container">
-          <Header />  
+          <Header/>  
           </div>
           <Switch>
             <Route path='/login' component={Login} />
