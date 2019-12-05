@@ -10,7 +10,7 @@ import RequestId from '../../higherOrderComponents/RequestId'
 class Session extends Component {
 
   componentDidMount = async () => {
-    // await window.gapi.hangout.render('placeholder-div', { 'render': 'createhangout' })
+    await window.gapi.hangout.render('placeholder-div', { 'render': 'createhangout' })
   }
 
   endSession = async () => {

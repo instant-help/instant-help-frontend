@@ -3,7 +3,9 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { setAuthentication, userStatus } from '../actions/authentication'
-import '../styles/nav.css'
+import "../styles/index.css"
+import '../styles/icons.css'
+
 
 class Header extends Component {
 
@@ -25,27 +27,38 @@ class Header extends Component {
   render(){
     return (
       
-      <header className="blog-header py-3" 
-      // className={"navColor"}
-      className="d-flex justify-content-end"
-      style={{  padding: '20px 25px 20px 0px'
-      }}
-      // style={{marginBottom: '10px'}}
-
+      <header 
+      style={{  padding: '20px 25px 10px 0px'}}
       >
-        {/* Right as well SIDE OF NAV BAR. */}
-        <div className="row flex-nowrap justify-content-end align-items-center">
-          {this.props.user ? 
-            <div>
-              <div >
-              <span className={"navButton"} className="btn btn-sm btn-light" style={{marginRight: '10px'}} >{`${this.props.user.queue_status}`}</span>
-              </div>
-            </div> 
-            : null
-          }
+      
+        <div 
+        className="containerNav"
+        >
+          {/* LOGO*/}
+          <div 
+          // className="navCol1"
+          >
+            <div >
+            <span style={{marginRight: '10px'}} className="logo" >
+              <i className="material-icons md-30 md-light" style={{padding: '7px 5px 0px 5px'}}> live_help</i>
+              Insta Help
+            </span>
+            </div>
+          </div> 
+
           {/* RIGHT SIDE OF NAV BAR */}
-          <div className='col'>      
-            <div className="row flex-nowrap justify-content-end align-items-center"> 
+          <div className='navCol2'>      
+            <div 
+            className="row flew-nowrap justify-content-end align-items-center"
+            > 
+              {this.props.user ? 
+                <div>
+                  <div >
+                  <span className={"navButton"} className="btn btn-sm btn-light" style={{marginRight: '10px'}} >{`${this.props.user.queue_status}`}</span>
+                  </div>
+                </div> 
+                : null
+              }
               {
                 this.props.user ? 
                 <div >

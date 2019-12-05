@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { refreshUser } from '../../actions/authentication'
 import { bindActionCreators } from 'redux'
-import "../../styles/profile.css"
-import "../../styles/nav.css"
+import "../../styles/index.css"
 
 class Profile extends Component {
   
