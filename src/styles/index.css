@@ -32,17 +32,18 @@ font-family: 'Gupter', serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* border: 2px solid black; */
 }
 
 .navCol1 {
-  border: 2px solid white;
+  /* border: 2px solid blue; */
   display: inline-block;
 
 }
 
 .navCol2 {
-  /* border: 2px solid white;
-  justify-content: flex-end; */
+  /* border: 2px solid red; */
+  /* justify-content: flex-end; */
   display: flex
 }
 
@@ -83,9 +84,67 @@ font-family: 'Gupter', serif;
   background-color: rgb(135, 103, 53);
 }
 
-@media (min-width: 200px) and (max-width: 480px ) {
+/* Rules for sizing the icon. */
+
+.material-icons.md-icon-size { font-size: 30px; }
+.material-icons.md-padding { padding: 7px 5px 0px 5px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+
+/* @media (min-width: 200px) and (max-width: 480px ) {
+
+} */
+
+@media (min-width: 1px) and (max-width: 800px ) {
+
+
+.containerNav {
+  /* display: inline-flex;
+  flex-direction: row;
+  border: 2px solid white;
+  flex-wrap: wrap; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid white; */
 
 }
-@media (min-width: 481) and (max-width: 800px ) {
+
+.navCol1 {
+  /* border: 2px solid rgb(255, 0, 0); */
+  display: inline-block;
+  /* margin-bottom: 15px; */
+}
+
+.navCol2 {
+  /* border: 2px solid green; */
+  justify-content: flex-end;
+  display: flex;
+}
+
+  .logo {
+    color: rgba(255, 255, 255, 1);
+    font-size: 50px;
+    /* margin-left: 10px; */
+    border: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content:center;
+    padding-right:10px;
+    align-self: auto;
+    white-space: nowrap;
+  }
+  .material-icons.md-icon-size { font-size: 50px; }
+  .material-icons.md-padding { padding: 12px 2px 5px 5px; }
+
 
 }
+

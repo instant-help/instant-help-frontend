@@ -35,12 +35,13 @@ class Header extends Component {
         className="containerNav"
         >
           {/* LOGO*/}
-          <div 
-          // className="navCol1"
-          >
+          <div className='navCol1'>
             <div >
             <span style={{marginRight: '10px'}} className="logo" >
-              <i className="material-icons md-30 md-light" style={{padding: '7px 5px 0px 5px'}}> live_help</i>
+              <i 
+              className="material-icons md-icon-size md-padding md-light" 
+              // style={{padding: '7px 5px 0px 5px'}}
+              > live_help</i>
               Insta Help
             </span>
             </div>
