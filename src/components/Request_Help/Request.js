@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import  { connect }  from 'react-redux'
 import  { userStatus }  from '../../actions/authentication'
 import  { postRequest, getCurrentRequestByUserID, closeHelpRequest, helpersProfiles }  from '../../actions/ihelp'
-
+import "../../styles/index.scss"
 class Request extends Component {
   constructor(props){
     super(props)
@@ -47,11 +47,7 @@ class Request extends Component {
     })
   }
 
- 
-  
-
   render(){
-    
     return (
       <div>
         <div style={{marginTop: '10px'}}>
@@ -66,10 +62,11 @@ class Request extends Component {
                       className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={ this.onChange } required>
                     </textarea>
                   </div>
-                  <button type="submit" className="btn btn-warning">{ this.props.user.queue_status !== 'available' ? this.props.user.queue_status.toUpperCase()  : 'Submit Request' }</button>
+                  {/* <button style={{margin: '10px 0px 0px 0px'}} className="btn btn-lg text-white primary-color btn-block" type="submit">Create Profile</button>           */}
+                  <button type="submit" className="btn btn-bg text-white primary-color btn-block">{ this.props.user.queue_status !== 'available' ? <span className="capitalizeFont">{this.props.user.queue_status}</span> : 'Submit Request' }</button>
                   {
                     (this.props.user.queue_status === 'request in queue' || this.props.user.queue_status === 'request pending' ) 
-                    ? <a onClick={this.closeRequest}style={{marginLeft: '10px'}} className="btn btn-danger">Close Request </a> 
+                    ? <a onClick={this.closeRequest}style={{marginTop: '10px'}} className="btn btn-bg text-white primary-red btn-block">Close Request </a> 
                     : null
                   }
                 </form>
@@ -97,4 +94,3 @@ const mapDispatchToProps = dispatch =>
   }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Request)
-

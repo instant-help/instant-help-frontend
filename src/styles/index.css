@@ -1,11 +1,12 @@
 html,
 body {
-  max-width: 1000px;
+  max-width: 100%;
   margin: auto;
+  height: 100%;
 }
 
 #root {
-  background-color: white;
+  background-color: #eaeaea;
   height: 100%;
 }
 /* @import url('https://fonts.googleapis.com/css?family=Josefin+Sans'); */
@@ -33,6 +34,7 @@ font-family: 'Gupter', serif;
   justify-content: space-between;
   align-items: center;
   /* border: 2px solid black; */
+  
 }
 
 .navCol1 {
@@ -61,12 +63,13 @@ font-family: 'Gupter', serif;
 }
 
 .logoPadding {
-  padding: '7px 5px 0px 5px';
+  padding: 7px 5px 0px 5px;
 }
 
 
 .navColor {
-  background-color: darkorange;
+  background-color: #2851A3;
+  /* background-color: #3578E5; */
 }
 
 .navRow {
@@ -80,10 +83,22 @@ font-family: 'Gupter', serif;
   /* white-space: nowrap; */
 }
 
-.profileBackground {
-  background-color: rgb(135, 103, 53);
+.btn.acceptRequestButton {
+  background-color: #12cd3c; 
 }
 
+.btn.stopRequestButton {
+  background-color: #ff0920;
+  
+}
+
+.profileBackground {
+  /* background-color: rgb(135, 103, 53); */
+}
+
+.capitalizeFont {
+  text-transform: capitalize;
+}
 /* Rules for sizing the icon. */
 
 .material-icons.md-icon-size { font-size: 30px; }
@@ -144,7 +159,4 @@ font-family: 'Gupter', serif;
   }
   .material-icons.md-icon-size { font-size: 50px; }
   .material-icons.md-padding { padding: 12px 2px 5px 5px; }
-
-
 }
-

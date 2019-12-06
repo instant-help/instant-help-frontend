@@ -22,7 +22,6 @@ const AuthenticatedRoute = props => {
   }
 }
 
-
 const mapStateToProps = state => ({ 
   authentication: state.authentication
 })

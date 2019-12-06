@@ -11,7 +11,8 @@ export const logIn = function (username, password, cb) {
   return dispatch => {
     request('/auth/token','post', {
       username: username,
-      password: password })
+      password: password 
+    })
     .then(response => {
       localStorage.setItem('token', response.data.token)
       dispatch(refreshUser(cb))
@@ -20,6 +21,23 @@ export const logIn = function (username, password, cb) {
       console.log(error)
     })
   }
+}
+export const logout = function () {
+  return dispatch => {
+    request('/auth/token')
+      .then(response => {
+        return request(`/users/${response.data.id}`, 'put', { online: "offline" })
+      }).then(response => {
+        if(response){
+          localStorage.removeItem('token')
+          this.setAuthentication(null)
+        }
+        // dispatch(userInfo(response.data.id))
+      })
+  }
+  // this.userStatus('put',"offline")
+  // localStorage.removeItem('token')
+  // this.setAuthentication(null);
 }
 
 // Signs up and creates a new user and then logs them in. 

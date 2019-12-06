@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { getCurrentRequestByUserID, getRequestForUser2 } from '../actions/ihelp'
 
 class RequestId extends Component {
-  
   componentDidMount = async () => {
     const userStatus = this.props.user.queue_status
     if (userStatus.includes('request')) {
@@ -12,10 +11,8 @@ class RequestId extends Component {
     }
     if (userStatus.includes('offering')) {
       await this.props.getRequestForUser2()
-
     }
   }
-
   render(){
     return this.props.requestInfo.id ? this.props.children : null
   }
@@ -23,10 +20,8 @@ class RequestId extends Component {
 
 const mapStateToProps = state => ({
   requestInfo: state.ihelp.requestInfo,
-  user: state.authentication.user,
-
+  user: state.authentication.user
 })
-
 
 const mapDispatchToProps = dispatch => 
   bindActionCreators({

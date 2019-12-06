@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Request from './Request'
 import Request_Queue from './Request_Queue'
 
-
 class Request_Help extends Component {
 
   render(){
@@ -15,6 +14,5 @@ class Request_Help extends Component {
     )
   }
 }
-
 
 export default Request_Help

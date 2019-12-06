@@ -14,8 +14,7 @@ import ProfileSettings from './Profile/ProfileSettings'
 import ProfileNewForm from './Profile/ProfileNewForm'
 import Profile from './Profile/Profile'
 import AuthenticatedRoute from '../higherOrderComponents/AuthenticatedRoute'
-import "../styles/index.css"
-
+import "../styles/index.scss"
 class App extends Component {
   componentDidMount(){
     this.props.refreshUser()    
@@ -23,31 +22,30 @@ class App extends Component {
 
   render() {
     return (
-    <div         className={"pageDimension"}
-    >
-      <BrowserRouter>
-        <div                 
-        className={"pageDimension"}
-        className={"navColor"}
-
->
-          <div className="container">
-          <Header/>  
+      <div>
+        <BrowserRouter>
+          <div className="app-container">
+            <div className="navColor">
+              <div className={"container"}>
+                <div>
+                  <Header/> 
+                </div>
+              </div>
+            </div>
+            <Switch>
+              <Route path='/login' component={Login} />
+              <Route path='/signup' component={Signup} />
+              <AuthenticatedRoute path='/session' component={Session} />
+              <AuthenticatedRoute path='/profileSettings' component={ProfileSettings} />
+              <Route path='/profileNewForm' component={ProfileNewForm} />
+              <AuthenticatedRoute path='/requestHelp' component={Request_Help} />
+              <AuthenticatedRoute path='/offerHelp' component={Offer} />
+              <AuthenticatedRoute path='/profile' component={Profile} />
+              <Route path='/' component={Home} />
+            </Switch>
           </div>
-          <Switch>
-            <Route path='/login' component={Login} />
-            <Route path='/signup' component={Signup} />
-            <AuthenticatedRoute path='/session' component={Session} />
-            <AuthenticatedRoute path='/profileSettings' component={ProfileSettings} />
-            <Route path='/profileNewForm' component={ProfileNewForm} />
-            <AuthenticatedRoute path='/requestHelp' component={Request_Help} />
-            <AuthenticatedRoute path='/offerHelp' component={Offer} />
-            <AuthenticatedRoute path='/profile' component={Profile} />
-            <Route path='/' component={Home} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    </div>
+        </BrowserRouter>
+      </div>
     );
   }
 }

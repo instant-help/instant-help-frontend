@@ -26,20 +26,20 @@ class Offer extends Component {
     
     return (
       <div className='container'>
-        <button  onClick={this.onClickOfferHelp} type="button"  className="btn btn-primary btn-lg btn-block">
+          {
+            this.props.user.queue_status === 'available' ? 
+            null : 
+            <button  onClick={this.onClickStopOfferingHelp} type="button" style={{marginTop: "10px"}}className="btn btn-lg text-white primary-red btn-block ">
+            Stop Accepting New Requests
+            </button> 
+          }
+        <button  onClick={this.onClickOfferHelp} type="button"  style={{marginTop: "10px"}} className="btn btn-lg text-white primary-color btn-block ">
           {
             this.props.user.queue_status === 'available' ? 
             'Start Offering Help' : 
             'Accepting Requests'
           }
         </button>
-        {
-          this.props.user.queue_status === 'available' ? 
-          null : 
-          <button  onClick={this.onClickStopOfferingHelp} type="button" className="btn btn-secondary btn-lg btn-block">
-          Stop Accepting New Requests
-          </button> 
-        }
         <OfferQueue />
       </div>
     )

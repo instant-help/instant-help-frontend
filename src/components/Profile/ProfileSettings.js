@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-
 class ProfileSettings extends Component {
 
   render(){
-    
     return (
       <div className="container">
         <form>
@@ -105,4 +103,3 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, null)(ProfileSettings)
-

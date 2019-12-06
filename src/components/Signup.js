@@ -21,8 +21,6 @@ class Signup extends Component {
     event.preventDefault()
     const { inputEmail, inputPassword } = event.target
 
-
-
     // this.props.createUserAccount(inputEmail, inputPassword)
     // this.props.logIn(inputEmail, inputPassword)
     // this.props.history.push('/ProfileNewForm')
@@ -49,7 +47,6 @@ class Signup extends Component {
       this.setState({showErrorMessage: true, showSuccessMessage: false })
     })
   }
-
 
   render(){
     return (

@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import SessionConnectionProfiles from './SessionConnectionProfiles'
 import { refreshUser } from '../../actions/authentication'
 import { getActiveSessionInfo, updateUserQueueStatus, updateSessionStatus, updateRequestStatus, deleteRequestFromQueue } from '../../actions/ihelp'
-
 import RequestId from '../../higherOrderComponents/RequestId'
 
 class Session extends Component {
@@ -32,24 +31,23 @@ class Session extends Component {
     this.props.refreshUser()
   }
 
-
   render(){
     return (
-      <div className='container'>
+      <div style={{marginTop: "20px"}}className='container'>
         <RequestId>
           <div>
             <div>
               <div className="card">
                 <div className="card-header">
                   <div className="row justify-content-around" style={{marginBottom: '10px'}}>
-                    <div id="placeholder-div"></div>
-                    <button onClick={() => this.endSession()} className="btn btn-primary btn-sm col-2">End</button> 
+                    <button onClick={() => this.endSession()} style={{margin: "0px 25px 0px 25px "}} className="btn btn-bg text-white primary-red btn-block">End Session</button> 
                   </div>
                 </div>
                 <div className="card-body">
                   <div className='container'>
+                    <div id="placeholder-div"></div>
                     <div className="card">
-                      <div className="card-header">
+                      <div className="card-header text-black primary-thin-color">
                       Request Description
                       </div>
                       <div className="card-body">
@@ -96,10 +94,4 @@ const mapDispatchToProps = dispatch =>
     getActiveSessionInfo,
   }, dispatch)
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(Session)
-
-
-
-
-

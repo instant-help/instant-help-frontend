@@ -16,11 +16,10 @@ class Request_Queue extends Component {
     return (
       <div>
         <div style={{marginTop: '10px'}}>
-          <div className="card" >
+          <div className="card ">
           { this.props.offeringHelp.length !== 0 ? this.props.offeringHelp.map( user => {
               return <Request_Mini_Profile key={user.id} helper={user}/>
             }) : 
-            
             <div className='container' style={{marginBottom: '20px'}}>        
               <p className="card-text "> </p>
               <div className="card">   
@@ -46,5 +45,3 @@ const mapDispatchToProps = dispatch =>
   }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Request_Queue)
-
-

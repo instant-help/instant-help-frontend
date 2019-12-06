@@ -2,40 +2,36 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { setAuthentication, userStatus } from '../actions/authentication'
-import "../styles/index.css"
-import '../styles/icons.css'
-
-
+import { setAuthentication, userStatus, logout } from '../actions/authentication'
+import "../styles/index.scss"
+import ProfilePicture from "./ProfilePicture"
 class Header extends Component {
 
   lognInLogOutButton = () => {
     if(this.props.user) {
-      localStorage.removeItem('token')
-      this.props.setAuthentication(null)
-      this.props.userStatus('put',"offline")
+        this.props.logout();
+        //this.props.history.push('/login')
     }
     else {
       this.props.history.push('/login')
     }
   }
-  
+
   signUpButton = () => {
     this.props.history.push('/profilenewform')
+  }
+
+  componentDidUpdate = (prevProps) => {
+    console.log("props in componentDid prev", prevProps);
+    console.log("props in componentDid current", this.props);
   }
   
   render(){
     return (
-      
-      <header 
-      style={{  padding: '20px 25px 10px 0px'}}
-      >
-      
-        <div 
-        className="containerNav"
-        >
+      <header style={{  padding: '20px 25px 10px 0px'}}>
+        <div className="containerNav">
           {/* LOGO*/}
-          <div className='navCol1'>
+          <div className='navCol1' onClick={()=> this.props.history.push('/')}>
             <div >
             <span style={{marginRight: '10px'}} className="logo" >
               <i 
@@ -46,7 +42,6 @@ class Header extends Component {
             </span>
             </div>
           </div> 
-
           {/* RIGHT SIDE OF NAV BAR */}
           <div className='navCol2'>      
             <div 
@@ -62,8 +57,19 @@ class Header extends Component {
               }
               {
                 this.props.user ? 
-                <div >
-                <span className="btn btn-sm btn-light" onClick={()=> this.props.history.push('/profile')} style={{marginRight: '10px'}} >{this.props.user.firstname}<span> </span>{this.props.user.lastname} </span>
+                <div>
+                  <span className="btn btn-sm btn-light" 
+                  onClick={()=> this.props.history.push('/profile')} 
+                  style={{marginRight: '10px'}} >
+                    <ProfilePicture 
+                    imageUrl={this.props.user.image} 
+                    isButtonImage = { true }
+                    isOnline = { this.props.user.online == "online" }
+                    style={{ display: "inline-block"}}>
+                    </ProfilePicture> 
+                    <span className="pl-1">{this.props.user.firstname}</span>
+                    <span> {this.props.user.lastname} </span>
+                  </span>
                 </div> 
                 : null
               }
@@ -116,7 +122,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => 
   bindActionCreators({
     setAuthentication,
-    userStatus
+    userStatus,
+    logout
   }, dispatch)
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))

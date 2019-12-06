@@ -58,15 +58,12 @@ class ProfileNewForm extends Component {
     })
   }
 
-
-  render(){
-    
+  render(){ 
     return (
       <div className="container">
         <form onSubmit={this.onSubmit}>
-
-        <div className="card">
-            <div className="card-header text-black bg-warning">
+        <div className="card" style={{marginTop: '20px'}}>
+            <div className="card-header text-black primary-thin-color">
               Sign Up
             </div>
             <div className="card-body">
@@ -82,9 +79,8 @@ class ProfileNewForm extends Component {
               </div>
             </div>
           </div>
-
           <div className="card" style={{marginTop: '10px'}}>
-            <div className="card-header text-black bg-warning">
+            <div className="card-header text-black primary-thin-color">
               User Information 
             </div>
             <div className="card-body">
@@ -143,7 +139,7 @@ class ProfileNewForm extends Component {
             </div>
           </div>
           <div className="card" style={{marginTop: '10px'}}>
-            <div className="card-header text-black bg-warning">
+            <div className="card-header text-black primary-thin-color">
             Profile Information
             </div>
             <div className="card-body">
@@ -166,7 +162,7 @@ class ProfileNewForm extends Component {
               </div>
             </div>
           </div>
-          <button style={{margin: '25px 0px 50px 10px'}} type="submit" className="btn btn-warning btn-lg">Create Profile</button>
+          <button style={{margin: '15px 0px 0px 0px'}} className="btn btn-lg text-white primary-color btn-block" type="submit">Create Profile</button>          
         </form>
       </div>
     )

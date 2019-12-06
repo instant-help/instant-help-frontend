@@ -23,7 +23,7 @@ class Login extends Component {
       <div className="login">
         <form onSubmit={this.handleSignIn} className="login-form">
           <div className="text-center mb-4">
-            <h1 className="h3 mb-3 font-weight-normal">Log in</h1>
+            <h1 className="h3 mb-3 font-weight-normal">Log In</h1>
           </div>
           <div className="form-label-group">
             <input type="text" name="inputEmail" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
@@ -34,7 +34,7 @@ class Login extends Component {
           <div className={ !this.state.showErrorMessage ? 'login-auth-error login-hide-auth-error' : 'login-auth-error' }>
             Invalid Username or Password
           </div>
-          <button className="btn btn-lg btn-warning btn-block" type="submit">Log in</button>
+          <button className="btn btn-lg text-white primary-color btn-block" type="submit">Log In</button>          
         </form>
       </div>
     )
