@@ -2,7 +2,7 @@
 
 This project is designed bring together developers so they can connect and help each other in real time. Simply create a user profile to offer help or request help within the developer community. 
 
-Caution: Insta Help is deployed using Heroku. Heroku serevers will sleep if left unused. If Heroku Servers are asleep they will activate shortly. Estimated time to activate 30 seconds.  
+Caution:  Insta Help is deployed using Heroku. Heroku serevers will sleep if left unused. If Heroku Servers are asleep they will activate shortly. Estimated time to activate 30 seconds.  
 
 takes a moment to activate initially servers maybe asleep and will activate within a short time.  
 
