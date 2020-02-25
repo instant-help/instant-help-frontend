@@ -152,7 +152,7 @@ heroku open – you should now be able to sign up or log in. test login Username
 ```
 
 ### Database Schema
-![]images/filename Intant- Help-Transparent-Backgroud.png
+![](images/instant-help.png) 
 
 ### Project Status
 
